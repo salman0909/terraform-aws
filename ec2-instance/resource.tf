@@ -4,9 +4,9 @@ resource "aws_instance" "eoc-instance" {
   associate_public_ip_address = true
   key_name = aws_key_pair.key_pair.key_name
   security_groups = [aws_security_group.ssh-allowed]
-  tags = [
+  tags = {
       Name = "eoc-instance"
-   ]
+   }
 }
 
 #create a Pem file formatted private key
@@ -23,7 +23,7 @@ resource "aws_key_pair" "key_pair" {
 resource "aws_vpc" "main-vpc" {
   cidr_block = "10.0.0.0/16"
 }
-tags {
+tags = {
     Name = "main-vpc"
   }
 }
@@ -33,7 +33,7 @@ resource "aws_subnet" "dev-subnet-public-1" {
   vpc_id = "${aws_vpc.main-vpc.id}"
   availability_zone = var.aws_region
 
-tags {
+tags = {
      Name = "dev-subnet-public-1"
   }
 }
