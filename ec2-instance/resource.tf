@@ -13,10 +13,10 @@ resource "aws_vpc" "example" {
   }
 }
 
-resource "aws_subnet" "example" {
-vpc_id            = var.vpc_id
-  subnet_ids = var.subnet_id
-  tags = {
-    Name = "tf-example"
-  }
-}
+#resource "aws_subnet" "example" {
+#vpc_id            = var.vpc_id
+  #subnet_ids = var.subnet_id
+  #tags = {
+  #  Name = "tf-example"
+ # }
+#}
