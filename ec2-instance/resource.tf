@@ -3,6 +3,7 @@ resource "aws_instance" "eoc-instance" {
   instance_type = var.instance_type
   associate_public_ip_address = true
   key_name = aws_key_pair.key_pair.key_name
+  security_groups = [aws_security_group.ssh-allowed]
   tags = [
       Name = "eoc-instance"
 }
