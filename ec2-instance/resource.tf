@@ -7,16 +7,14 @@ resource "aws_instance" "eoc-instance" {
 
 resource "aws_vpc" "example" {
   cidr_block = "172.30.0.0/16"
+  vpc_id            = var.vpc_id
   tags = {
     Name = "tf-example"
   }
 }
 
 resource "aws_subnet" "example" {
-  vpc_id            = var.vpc_id
-  cidr_block        = "172.30.0.0/16"
   subnet_ids = var.subnet_id
-
   tags = {
     Name = "tf-example"
   }
