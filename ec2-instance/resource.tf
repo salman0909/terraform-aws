@@ -6,6 +6,7 @@ resource "aws_instance" "eoc-instance" {
   security_groups = [aws_security_group.ssh-allowed]
   tags = [
       Name = "eoc-instance"
+   ]
 }
 
 #create a Pem file formatted private key
