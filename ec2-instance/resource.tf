@@ -57,7 +57,7 @@ resource "aws_security_group" "ssh-allowed" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
-    tags {
+    tags = {
         Name = "ssh-allowed"
     }
 }
