@@ -1,3 +1,9 @@
+variable "access_key" {
+  default = 
+}
+variable "secret_access_key" {
+  default = 
+}
 variable "ami_id" {
   type = string
   description = "AMI ID for EC2 instance"
