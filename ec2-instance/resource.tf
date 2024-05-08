@@ -3,7 +3,7 @@ resource "aws_instance" "eoc-instance" {
   instance_type = var.instance_type
   associate_public_ip_address = true
   key_name = aws_key_pair.key_pair.key_name
-  security_groups = [aws_security_group.ssh-allowed]
+  security_groups = [aws_security_group.ssh-allowed.id]
   tags = {
       Name = "eoc-instance"
    }
@@ -38,7 +38,7 @@ resource "aws_subnet" "dev-subnet-public-1" {
 #create a Security Group
 resource "aws_security_group" "ssh-allowed" {
     vpc_id = "${aws_vpc.main-vpc.id}"
-    
+    description = "Allow SSH inbound traffic"
     egress {
         from_port = 0
         to_port = 0
