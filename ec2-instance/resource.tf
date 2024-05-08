@@ -28,8 +28,8 @@ tags {
 }
 
 #create a public Subnet
-resource “aws_subnet” “dev-subnet-public-1” {
-  vpc_id = “${aws_vpc.main-vpc.id}”
+resource "aws_subnet" "dev-subnet-public-1" {
+  vpc_id = "${aws_vpc.main-vpc.id}"
   availability_zone = var.aws_region
 
 tags {
