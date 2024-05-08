@@ -22,18 +22,15 @@ resource "aws_key_pair" "key_pair" {
 #create a VPC
 resource "aws_vpc" "main-vpc" {
   cidr_block = "10.0.0.0/16"
-}
-tags = {
+  tags = {
     Name = "main-vpc"
   }
 }
-
 #create a public Subnet
 resource "aws_subnet" "dev-subnet-public-1" {
   vpc_id = "${aws_vpc.main-vpc.id}"
   availability_zone = var.aws_region
-
-tags = {
+  tags = {
      Name = "dev-subnet-public-1"
   }
 }
@@ -53,7 +50,7 @@ resource "aws_security_group" "ssh-allowed" {
         to_port = 22
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
-} 
+   } 
     ingress {
         from_port = 80
         to_port = 80
