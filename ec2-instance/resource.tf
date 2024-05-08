@@ -19,6 +19,12 @@ resource "aws_key_pair" "key_pair" {
   key_name   = var.key_name
   public_key = "tls_private_key.rsa-4096.public_key_openssh"
 }
+#create a local file 
+resource "local_file" "private_key" {
+  content = tls_private_key.rsa-4096.private_key_pem
+  filename = var.key_name
+}
+
 #create a VPC
 resource "aws_vpc" "main-vpc" {
   cidr_block = "10.0.0.0/16"
