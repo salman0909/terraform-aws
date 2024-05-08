@@ -21,6 +21,6 @@ variable "instance_type" {
   type = string
   default = "t2.micro"
 }
-variable "subnet_id" {
-  default ="subnet-08a51efc27d9a5002" //replace with your SUBNET_ID
+variable "key_name" {
+  
 }
