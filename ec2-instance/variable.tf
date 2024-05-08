@@ -21,9 +21,6 @@ variable "instance_type" {
   type = string
   default = "t2.micro"
 }
-variable "vpc_id" {
-  default ="vpc-0d357fedeb24ba5b7" //replace with your VPC_ID
-}
 variable "subnet_id" {
   default ="subnet-08a51efc27d9a5002" //replace with your SUBNET_ID
 }
