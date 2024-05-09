@@ -4,10 +4,10 @@ resource "tls_private_key" "rsa-4096" {
   rsa_bits  = 4096
 }
 # create a aws key pair resource
-#resource "aws_key_pair" "key_pair" {
- # key_name   = var.key_name
-  #public_key = "tls_private_key.rsa-4096.public_key_openssh"
-#}
+resource "aws_key_pair" "key_pair" {
+  key_name   = var.key_name
+  public_key = tls_private_key.rsa-4096.public_key_openssh
+}
 #create a local file 
 resource "local_file" "private_key" {
   content = tls_private_key.rsa-4096.private_key_pem
@@ -62,7 +62,6 @@ resource "aws_instance" "eoc-instance" {
   ami           = var.ami_id
   instance_type = var.instance_type
   associate_public_ip_address = true
-  #key_name = aws_key_pair.key_pair.id
   subnet_id = aws_subnet.dev-subnet-public-1.id
   security_groups = [aws_security_group.ssh-allowed.id]
   tags = {
