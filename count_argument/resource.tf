@@ -19,7 +19,7 @@ resource "aws_instance" "eoc-instance" {
   ami           = var.ami_id
   instance_type = var.instance_type
   security_groups = [ aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id ]
-  count = lenght(var.instance_name)
+  count = length(var.instance_name)
   tags = {
       "Name" = "var.instance_name[count.index]"
    }
