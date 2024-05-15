@@ -1,4 +1,3 @@
-cat securitygroup.tf
 # Create Security Group - SSH Traffic
 resource "aws_security_group" "vpc-ssh" {
   vpc_id = "${aws_vpc.main-vpc.id}"
