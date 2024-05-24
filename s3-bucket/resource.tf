@@ -28,6 +28,18 @@ resource "aws_s3_bucket_versioning" "versioning_example" {
     status = "Enabled"
   }
 }
+# Upload files to S3 Bucket 
+resource "aws_s3_object" "provision_source_files" {
+    bucket  = aws_s3_bucket.eoc_bucket.id
+    
+    # myapp/ is the Directory contains files to be uploaded to S3
+    for_each = fileset("myapp/", "**/*.*")
+    key    = each.value
+    source = "myapp/${each.value}"
+    content_type = each.value
+}
+
+
 
 resource "aws_s3_bucket_acl" "example" {
   depends_on = [
