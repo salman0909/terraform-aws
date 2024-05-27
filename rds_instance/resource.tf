@@ -79,8 +79,17 @@ resource "aws_db_subnet_group" "database_subnet_group" {
 }
 
 resource "aws_db_instance" "db_instance" {
-  engine            = var.
-
+  engine            = var.engine
+  engine_version    = var.engine_version
+  multi_az          = false
+  identifier        = var.identifier
+  username          = var.username
+  password          = var.db_password
+  allocated_storage = 200
+  db_subnet_group_name = aws_db_subnet_group.database_subnet_group.name
+  vpc_security_group_ids  = [aws_security_group.database_security_group.id]
+  availability_zone    = data.aws_avaliabilty_zones.available_zones.names[0]
+  db
   
 
    
