@@ -55,7 +55,7 @@ resource "aws_security_group" "database_security_group" {
     from_port        = 3306
     to_port          = 3306
     protocol         = "tcp"
-    security_groups  = [aws_security_group.webserver_security_group]
+    security_groups  = [aws_security_group.webserver_security_group.id]
   }
   egress {
     from_port        = 0
