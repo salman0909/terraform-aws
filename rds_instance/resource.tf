@@ -43,7 +43,7 @@ resource "aws_security_group" "webserver_security_group" {
   tags = {
     Name = "Webserver Security group"
   }
-
+}
 #Create Security group for the Database
 resource "aws_security_group" "database_security_group" {
   name        = "database security group"
