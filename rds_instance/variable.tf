@@ -16,3 +16,7 @@ variable "instance_class" {
   type = string
   default = "db.t2.micro"
 }
+variable "db_password" {
+  description = "RDS root user password"
+  sensitive   = true
+}
