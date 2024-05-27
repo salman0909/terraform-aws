@@ -78,6 +78,9 @@ resource "aws_db_subnet_group" "database_subnet_group" {
   }
 }
 
+resource "aws_db_instance" "db_instance" {
+  engine            = var.
+
   
 
    
