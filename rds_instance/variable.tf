@@ -41,4 +41,8 @@ variable "instance_class" {
   type = string
   default = "db.t2.micro"
 }
-
+variable "db_name" {
+  description = "Name of the Database"
+  type = string
+  default = "applicationdb"
+}
