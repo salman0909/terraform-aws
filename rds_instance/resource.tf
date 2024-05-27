@@ -78,7 +78,7 @@ resource "aws_db_subnet_group" "database_subnet_group" {
   }
 }
 
-resource "aws_db_instance" "db_instance" {
+resource "aws_db_instance" "eoc_db" {
   engine            = var.engine
   engine_version    = var.engine_version
   multi_az          = false
