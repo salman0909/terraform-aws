@@ -5,12 +5,6 @@ variable "secret_access_key" {
 
 }
 
-variable "aws_region" {
-  type        = string
-  description = "AWS Region"
-  default     = "us-east-2" //chnage to your desired region
-}
-
 variable "engine" {
   default     = "postgres"
   description = "Engine type, here it is postgres"
