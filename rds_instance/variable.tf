@@ -2,13 +2,13 @@ variable "access_key" {
 
 }
 variable "secret_access_key" {
- 
+
 }
 
 variable "aws_region" {
-  type = string
+  type        = string
   description = "AWS Region"
-  default = "us-east-2" //chnage to your desired region
+  default     = "us-east-2" //chnage to your desired region
 }
 
 variable "engine" {
@@ -17,10 +17,8 @@ variable "engine" {
 }
 variable "engine_version" {
   description = "Engine version"
+  default     = "8.0"
 
-  default = {
-    mysql    = "8.0.31"
-  }
 }
 
 variable "identifier" {
@@ -28,21 +26,19 @@ variable "identifier" {
   description = "Identifier for your DB"
 }
 variable "username" {
-  default     = "eoc-admin"
+  default     = "eocadmin"
   description = "User name"
 }
 variable "db_password" {
-  description = "password, provide through your ENV variables"
-  sensitive   = true
+  sensitive = true
 }
 
 variable "instance_class" {
   description = "Instance class for RDS Instance"
-  type = string
-  default = "db.t2.micro"
+  default     = "db.t3.micro"
 }
 variable "db_name" {
   description = "Name of the Database"
-  type = string
-  default = "applicationdb"
+  type        = string
+  default     = "applicationdb"
 }
