@@ -70,7 +70,7 @@ resource "aws_security_group" "database_security_group" {
 
 resource "aws_db_subnet_group" "database_subnet_group" {
   name               = "database-subnets"
-  subnet_ids         = [aws_default_subnet.subnet_az1.id, aws_default_subnet.subnet_az1.id]
+  subnet_ids         = [aws_default_subnet.subnet_az1.id, aws_default_subnet.subnet_az2.id]
   description        = "subnets for database instance"
 
   tags  = {
@@ -86,7 +86,7 @@ resource "aws_db_instance" "eoc_db" {
   username          = var.username
   password          = var.db_password
   instance_class    = var.instance_class
-  allocated_storage = 200
+  allocated_storage = 20
   db_subnet_group_name = aws_db_subnet_group.database_subnet_group.name
   vpc_security_group_ids  = [aws_security_group.database_security_group.id]
   availability_zone    = data.aws_availability_zones.available_zones.names[0]
