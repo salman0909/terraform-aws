@@ -21,7 +21,7 @@ resource "aws_default_subnet" "subnet_az2" {
 }
 #create a Security Group
 resource "aws_security_group" "ssh-allowed" {
-    vpc_id = aws_default_vpc.default_vpc
+    vpc_id = aws_default_vpc.default_vpc.id
     description = "Allow SSH inbound traffic"
     egress {
         from_port = 0
@@ -49,5 +49,6 @@ resource "aws_security_group" "ssh-allowed" {
 resource "aws_instance" "terraform-state-test" {
   ami           =  var.ami_id
   instance_type = var.instance_type
+  
   
 }
