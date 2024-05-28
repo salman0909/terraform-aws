@@ -12,12 +12,12 @@ variable "aws_region" {
 }
 
 variable "engine" {
-  default     = "mysql"
-  description = "Engine type, here it is mysql"
+  default     = "postgres"
+  description = "Engine type, here it is postgres"
 }
 variable "engine_version" {
   description = "Engine version"
-  default     = "8.0"
+  default     = "14.1"
 
 }
 
