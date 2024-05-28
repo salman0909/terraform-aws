@@ -19,6 +19,32 @@ resource "aws_default_subnet" "subnet_az1" {
 resource "aws_default_subnet" "subnet_az2" {
   availability_zone = data.aws_availability_zones.available_zones.names[1]
 }
+#create a Security Group
+resource "aws_security_group" "ssh-allowed" {
+    vpc_id = aws_default_vpc.default_vpc
+    description = "Allow SSH inbound traffic"
+    egress {
+        from_port = 0
+        to_port = 0
+        protocol = -1
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    ingress {
+        from_port = 22
+        to_port = 22
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+   } 
+    ingress {
+        from_port = 80
+        to_port = 80
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+    }
+    tags = {
+        Name = "ssh-allowed"
+    }
+}
 
 resource "aws_instance" "terraform-state-test" {
   ami           =  var.ami_id
