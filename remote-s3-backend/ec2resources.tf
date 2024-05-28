@@ -21,6 +21,7 @@ resource "aws_default_subnet" "subnet_az2" {
 }
 
 resource "aws_instance" "terraform-state-test" {
-  ami           = "var."
-  instance_type = "t2.micro"
+  ami           =  var.ami_id
+  instance_type = var.instance_type
+  
 }
