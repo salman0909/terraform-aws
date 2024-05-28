@@ -49,6 +49,10 @@ resource "aws_security_group" "ssh-allowed" {
 resource "aws_instance" "terraform-state-test" {
   ami           =  var.ami_id
   instance_type = var.instance_type
-  
+  subnet_id = aws_default_subnet.subnet_az1.id
+  security_groups = [aws_security_group.ssh-allowed.id]
+  tags = {
+      Name = "terraform-state-test"
+   }
   
 }
