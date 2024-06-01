@@ -4,6 +4,10 @@ terraform {
       source  = "petoju/mysql"
       version = "3.0.60"
     }
+   docker = {
+      source  = "kreuzwerker/docker"
+      version = "~> 2.13.0"
+    }
   }
 }
 
