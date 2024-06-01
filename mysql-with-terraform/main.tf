@@ -1,3 +1,24 @@
+resource "docker_image" "mysql" {
+  name = "mysql:8.0"
+  keep_locally = false
+}
+
+resource "docker_container" "mysql" {
+  name  = "mysql"
+  image = docker_image.mysql.latest
+  
+  ports {
+    internal = 3306
+    external = 3306
+  }
+
+  env = [
+    "MYSQL_ROOT_PASSWORD=rootpassword",
+    "MYSQL_DATABASE=sample"
+  ]
+
+  depends_on = [docker_image.mysql]
+}
 resource "random_password" "user_password" {
   length           = 24
   special          = true
