@@ -17,3 +17,6 @@ provider "mysql" {
   username = "root"
   password = "rootpassword"
 }
+provider "docker" {
+  host = "unix:///var/run/docker.sock"
+}
