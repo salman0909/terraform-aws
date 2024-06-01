@@ -26,7 +26,7 @@ resource "mysql_grant" "user_id" {
   user       = var.database_username
   host       = "%"
   database   = var.database_name
-  privileges = ["SELECT", "UPDATE"]
+  privileges = ["ALL"]
   depends_on = [
     mysql_user.user_id
   ]
