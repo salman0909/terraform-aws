@@ -3,6 +3,6 @@ output "user" {
 }
 
 output "password" {
-  //sensitive = true
+  sensitive = true
   value     = random_password.user_password.result
 }
