@@ -25,6 +25,7 @@ resource "aws_ecs_task_definition" "name" {
           "containerPort" : 80,
           "hostPort"      : 80
         }
+]
     }
   ]
   DEFINITION
@@ -33,7 +34,7 @@ resource "aws_ecs_task_definition" "name" {
 resource "aws_ecs_service" "service" {
   name = "service"
   cluster = aws_ecs_cluster.eoc_cluster.id
-  task_definition = aws_ecs_task_definition.id
+  task_definition = aws_ecs_task_definition.name.id
   desired_count = 1
   launch_type = "FARGATE"
   platform_version = "LATEST"
