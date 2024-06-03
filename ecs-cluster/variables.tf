@@ -11,6 +11,7 @@ variable "access_key" {
 
 variable "secret_access_key" {
   type      = string
+  sensitive = true
 }
 # vpc variable
 variable "vpc_cidr" {
