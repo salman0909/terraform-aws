@@ -3,7 +3,7 @@ terraform {
     bucket = "eocbucketstorebackend2024"
     dynamodb_table = "state-lock"
     key  = "eoc/mystatefile/terraform.tfstate"
-    region = "us-east-1"
+    region = "us-east-2"
 }
 }
 
