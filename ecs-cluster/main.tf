@@ -6,7 +6,7 @@ resource "aws_ecs_cluster" "eoc_cluster" {
   }
 }
 
-resource "aws_ecs_task_definition" "name" {
+resource "aws_ecs_task_definition" "ecs_task" {
   family = "service"
   network_mode = "awsvpc"
   requires_compatibilities = [ "FARGATE", "EC2" ]
@@ -34,7 +34,7 @@ resource "aws_ecs_task_definition" "name" {
 resource "aws_ecs_service" "service" {
   name = "service"
   cluster = aws_ecs_cluster.eoc_cluster.id
-  task_definition = aws_ecs_task_definition.name.id
+  task_definition = aws_ecs_task_definition.ecs_task.id
   desired_count = 1
   launch_type = "FARGATE"
   platform_version = "LATEST"
