@@ -25,3 +25,8 @@ variable "availability_zones" {
   type    = string
   default = "us-east-2a"
 }
+
+variable "ecs_cluster_name" {
+   type  = string
+  default = "eoc-ecs-cluster"
+}
