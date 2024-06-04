@@ -1,6 +1,8 @@
 #Internet gateway
 resource "aws_internet_gateway" "eoc_gw" {
   vpc_id = aws_vpc.eoc_main.id
+  tags = {
+    Name = "eoc-internet-gw"
 }
 #route table for public subnet - connecting to internet gateway
 resource "aws_route_table" "public_route_table" {
