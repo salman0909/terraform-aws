@@ -3,7 +3,7 @@ resource "aws_internet_gateway" "eoc_gw" {
   vpc_id = aws_vpc.eoc_main.id
   tags = {
     Name = "eoc-internet-gw"
-}
+  }
 }
 #route table for public subnet - connecting to internet gateway
 resource "aws_route_table" "public_route_table" {
@@ -12,6 +12,9 @@ resource "aws_route_table" "public_route_table" {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.eoc_gw.id
   }
+  tags = {
+    Name = "eoc-public-route-table"
+   }
 }
 
 # associate the route table with public subnet 1
