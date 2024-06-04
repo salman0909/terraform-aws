@@ -26,6 +26,9 @@ resource "aws_route_table" "private_route_table" {
     nat_gateway_id = aws_nat_gateway.eoc_nat_for_private_subnet.id
 
   }
+   tags = {
+     Name = "EOC-private-route-table"
+  }
 }
 
 #associate route table with private subnet
