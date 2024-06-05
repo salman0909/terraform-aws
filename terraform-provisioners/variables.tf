@@ -4,11 +4,6 @@ variable "access_key" {
 variable "secret_access_key" {
   sensitive = true
 }
-variable "ami_id" {
-  type = string
-  description = "AMI ID for EC2 instance"
-  default = "ami-0261755bbcb8c4a84" //specify with AMI ID
-}
 
 variable "aws_region" {
   type = string
@@ -23,4 +18,7 @@ variable "instance_type" {
 }
 variable "cidr" {
   default = "10.0.0.0/16"
+}
+variable "key_name" {
+  default = "mykey.pem"
 }
