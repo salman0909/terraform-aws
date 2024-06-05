@@ -1,8 +1,8 @@
 variable "access_key" {
-
+  sensitive = true
 }
 variable "secret_access_key" {
- 
+  sensitive = true
 }
 variable "ami_id" {
   type = string
