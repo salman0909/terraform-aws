@@ -25,6 +25,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main-vpc.id
   tags ={
     Name = "public-igw"
+  }
 }
 resource "aws_route_table" "public-rt" {
   vpc_id = aws_vpc.main-vpc.id
