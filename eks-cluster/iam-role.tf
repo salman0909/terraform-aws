@@ -65,7 +65,12 @@ resource "aws_iam_policy" "autoscaler" {
         "autoscaling:DescribeLaunchConfigurations",
         "autoscaling:SetDesiredCapacity",
         "autoscaling:TerminateInstanceInAutoScalingGroup",
-        "ec2:DescribeLaunchTemplateVersions"
+        "ec2:DescribeLaunchTemplateVersions",
+        "iam:CreatePolicy",
+        "iam:AddRoleToInstanceProfile",
+        "iam:AttachRolePolicy",
+        "iam:PassRole",
+        "iam:DeleteInstanceProfile"
       ],
       "Effect": "Allow",
       "Resource": "*"
