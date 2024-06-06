@@ -1,6 +1,6 @@
 resource "aws_security_group" "worker_mgmt" {
   name_prefix = "all_worker_management"
-  vpc_id = aws_vpc.main.id
+  vpc_id      = aws_vpc.main.id
   ingress {
     description = "TLS from VPC"
     from_port   = 22
