@@ -25,15 +25,15 @@ resource "aws_key_pair" "example" {
 #create a local file
 resource "local_file" "private_key" {
   content  = tls_private_key.rsa-4096.private_key_pem
-  filename =  var.key_name
+  filename = var.key_name
 }
 resource "aws_instance" "kubectl-server" {
-  ami  = data.aws_ami.ubuntu.id
-  key_name = aws_key_pair.example.key_name
-  instance_type = "t2.small"
-  associate_public_ip_address = true 
-  subnet_id = aws_subnet.public-1.id
-  vpc_security_group_ids = [ aws_security_group.worker_mgmt.id ]
+  ami                         = data.aws_ami.ubuntu.id
+  key_name                    = aws_key_pair.example.key_name
+  instance_type               = "t2.small"
+  associate_public_ip_address = true
+  subnet_id                   = aws_subnet.public-1.id
+  vpc_security_group_ids      = [aws_security_group.worker_mgmt.id]
   tags = {
     Name = "kubectl-server"
   }
