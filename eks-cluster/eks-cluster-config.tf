@@ -1,6 +1,6 @@
 resource "aws_eks_cluster" "eks" {
   name     = "eks-demo-cluster"
-  version = var.kubernetes_version
+  version  = var.kubernetes_version
   role_arn = aws_iam_role.master.arn
 
 
