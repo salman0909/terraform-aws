@@ -12,7 +12,7 @@ resource "aws_subnet" "public-1" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "public-sub-1"
+    Name = "eks-public-sub1"
   }
 }
 
@@ -23,6 +23,6 @@ resource "aws_subnet" "public-2" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "public-sub-2"
+    Name = "eks-public-sub2"
   }
 }
