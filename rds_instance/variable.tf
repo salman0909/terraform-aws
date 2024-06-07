@@ -12,9 +12,7 @@ variable "engine" {
 variable "engine_version" {
   description = "Engine version"
   default     = "14.1"
-
 }
-
 variable "identifier" {
   default     = "eocdb-rds"
   description = "Identifier for your DB"
@@ -26,7 +24,6 @@ variable "username" {
 variable "db_password" {
   sensitive = true
 }
-
 variable "instance_class" {
   description = "Instance class for RDS Instance"
   default     = "db.t3.micro"
