@@ -22,3 +22,12 @@ resource "aws_default_subnet" "subnet_az2" {
     Name = "rds-default-subnet1"
   } 
 }
+resource "aws_db_subnet_group" "database_subnet_group" {
+  name        = "database-subnets"
+  subnet_ids  = [aws_default_subnet.subnet_az1.id, aws_default_subnet.subnet_az2.id]
+  description = "subnets for database instance"
+
+  tags = {
+    Name = "database-subnets"
+  }
+}
