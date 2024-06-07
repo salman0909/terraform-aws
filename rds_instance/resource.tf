@@ -13,11 +13,18 @@ data "aws_availability_zones" "available_zones" {
 #Create a default subnet in the first availabilty zone if doesnt exists
 resource "aws_default_subnet" "subnet_az1" {
   availability_zone = data.aws_availability_zones.available_zones.names[0]
+  tags = {
+    Name = "rds-default-subnet1"
+  } 
+  
 }
 
 #Create a default subnet in the second availability zone if doesnt exists
 resource "aws_default_subnet" "subnet_az2" {
   availability_zone = data.aws_availability_zones.available_zones.names[1]
+  tags = {
+    Name = "rds-default-subnet2"
+  }
 }
 
 #Create Security Group for the webserver
