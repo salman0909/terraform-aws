@@ -4,7 +4,6 @@ variable "access_key" {
 variable "secret_access_key" {
   sensitive = true
 }
-
 variable "engine" {
   default     = "postgres"
   description = "Engine type, here it is postgres"
