@@ -4,6 +4,12 @@ variable "access_key" {
 variable "secret_access_key" {
   sensitive = true
 }
+variable "aws_region" {
+  description = "Configuring AWS as provider"
+  type        = string
+  default     = "us-east-2" //change to your desired region
+}
+
 variable "engine" {
   default     = "postgres"
   description = "Engine type, here it is postgres"
