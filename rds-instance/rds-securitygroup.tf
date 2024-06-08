@@ -1,5 +1,5 @@
 resource "aws_security_group" "rds" {
-  name   = "education_rds"
+  name   = "eoc-demo-rds"
   vpc_id = module.vpc.vpc_id
 
   ingress {
@@ -17,6 +17,6 @@ resource "aws_security_group" "rds" {
   }
 
   tags = {
-    Name = "education_rds"
+    Name = "eoc-demo-rds"
   }
 }
