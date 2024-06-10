@@ -23,9 +23,9 @@ resource "aws_security_group" "sg_for_elb" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-  tags {
-   Name = "sg_for_elb"
-}
+  tags = {
+    Name = "sg_for_elb"
+  }
 }
 
 resource "aws_security_group" "sg_for_ec2" {
