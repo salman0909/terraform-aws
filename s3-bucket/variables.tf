@@ -9,8 +9,3 @@ variable "aws_region" {
   description = "AWS Region"
   default = "us-east-2" //chnage to your desired region
 }
-
-variable "bucketname" {
-  description = "The name of the s3_bucket"
-  default = "eoc-bucket"
-}
