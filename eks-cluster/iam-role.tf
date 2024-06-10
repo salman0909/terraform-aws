@@ -1,5 +1,5 @@
 resource "aws_iam_role" "master" {
-  name = "ed-eks-master"
+  name = "eks-master"
 
   assume_role_policy = <<POLICY
 {
@@ -33,7 +33,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSVPCResourceController" {
 }
 
 resource "aws_iam_role" "worker" {
-  name = "ed-eks-worker"
+  name = "eks-worker"
 
   assume_role_policy = <<POLICY
 {
@@ -52,7 +52,7 @@ POLICY
 }
 
 resource "aws_iam_policy" "autoscaler" {
-  name   = "ed-eks-autoscaler-policy"
+  name   = "eks-autoscaler-policy"
   policy = <<EOF
 {
   "Version": "2012-10-17",
@@ -108,6 +108,6 @@ resource "aws_iam_role_policy_attachment" "autoscaler" {
 
 resource "aws_iam_instance_profile" "worker" {
   depends_on = [aws_iam_role.worker]
-  name       = "ed-eks-worker-new-profile"
+  name       = "eks-worker-new-profile"
   role       = aws_iam_role.worker.name
 }
