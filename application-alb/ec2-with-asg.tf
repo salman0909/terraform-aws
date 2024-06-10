@@ -1,7 +1,19 @@
+data "aws_ami" "ubuntu" {
+  most_recent = true
+  filter {
+    name   = "name"
+    values = ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"]
+  }
+  filter {
+    name   = "virtualization-type"
+    values = ["hvm"]
+  }
+  owners = ["099720109477"] # Canonical
+}
 #ASG with Launch template
 resource "aws_launch_template" "ec2_launch_template" {
   name_prefix   = "ec2_launch_template"
-  image_id      = "ami-0a0277ba899dd9fd3"
+  image_id      =  data.aws_ami.ubuntu.id
   instance_type = "t2.micro"
   user_data     = filebase64("user_data.sh")
 
