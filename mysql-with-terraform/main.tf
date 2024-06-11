@@ -5,7 +5,7 @@ resource "docker_image" "mysql" {
 
 resource "docker_container" "mysql" {
   name  = "mysql"
-  image = docker_image.mysql.latest
+  image = docker_image.mysql.name
   
   ports {
     internal = 3306
