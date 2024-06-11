@@ -19,3 +19,13 @@ resource "aws_subnet" "public_subnet" {
     Name = join("-", ["eoc-public-subnet", data.aws_availability_zones.available.names[count.index]])
   }
 }
+#2 Private Subnets
+resource "aws_subnet" "private_subnet" {
+  count             = 2
+  vpc_id            = aws_vpc.lb_vpc.id
+  cidr_block        = var.private_subnet_cidr[count.index]
+  availability_zone = data.aws_availability_zones.available.names[count.index]
+  tags = {
+    Name = join("-", ["eoc-private-subnet", data.aws_availability_zones.available.names[count.index]])
+  }
+}
